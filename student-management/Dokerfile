@@ -1,0 +1,14 @@
+# Utilise l'image JDK officielle
+FROM eclipse-temurin:17-jdk-jammy
+
+# Répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copie le jar construit dans le conteneur
+COPY target/student-management-0.0.1-SNAPSHOT.jar app.jar
+
+# Expose le port utilisé par Spring Boot
+EXPOSE 8080
+
+# Commande pour lancer l'application
+ENTRYPOINT ["java", "-jar", "app.jar"]
